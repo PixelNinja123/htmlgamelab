@@ -52,11 +52,9 @@ header{
 }
 
 footer {
-    position: relative; /* Добавляем относительное позиционирование, чтобы поместить текст внутри */
     background-image: linear-gradient(315deg, #63a4ff,  #83eaf1);
-    padding: 1px;
+    color: white;
     text-align: center;
-    font-size: 15px;
-    color: rgb(255, 255, 255); /* Установим белый цвет текста для контраста */
-    line-height: 115px; /* Выравнивание по вертикали */
+    height: 50%;
+    padding: 40px;
 }

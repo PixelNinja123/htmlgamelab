@@ -1,0 +1,62 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+}
+
+header{
+    background-image: linear-gradient(315deg, #63a4ff,  #83eaf1);
+    height: 350px;
+}
+
+.title{
+    text-align: center;
+    font-size: 45px;
+    margin-top: -10px;
+}
+
+.logic{
+    text-align: center;
+    font-size: 50px;
+    margin-top: -30px;
+}
+
+.pravila{
+    margin-top: -50px;
+    margin-left: 300px;
+    font-size: 20px;
+}
+
+.knopka {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 700px;
+    margin-top: 100px;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    font-size: 50px;
+}
+
+.slojnost{
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+}
+
+.main{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 100%, rgba(148,187,233,1) 100%);
+    height: 280px;
+}
+
+footer {
+    position: relative; /* Добавляем относительное позиционирование, чтобы поместить текст внутри */
+    background-image: linear-gradient(315deg, #63a4ff,  #83eaf1);
+    height: 120px;
+    text-align: center;
+    font-size: 15px;
+    color: rgb(255, 255, 255); /* Установим белый цвет текста для контраста */
+    line-height: 115px; /* Выравнивание по вертикали */
+}

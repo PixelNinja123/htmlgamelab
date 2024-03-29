@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="game.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИГРА</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="wrapper">
+                <div class="offer">
+                    <h1 class="title">ИГРА "УГАДАЙ ЧИСЛО"</h1>
+                    <p class="logic">Логика игры:</p>
+                    <ul class="pravila">
+                        <li>Компьютер загадывает случайное число в указанном диапазоне.</li>
+                        <li>Пользователю предоставляется 5 попыток, чтобы угадать число.</li>
+                        <li>После каждой попытки предоставляется информация, введенное число больше или меньше загаданного.</li>
+                        <li>В случае угадывания числа вы выиграете.</li>
+                        <li>После исчерпания попыток вы сможете начать сначала.</li>
+                    </ul>
+                    <div class="slojnost">
+                        <label for="min">Минимальное число:</label>
+                        <input type="number" id="min" name="min" value="1" min="1" max="100">
+                        <label for="max">Максимальное число:</label>
+                        <input type="number" id="max" name="max" value="10" min="1" max="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="wrapper">
+        <section class="main">
+            <button onclick="startGame()" class="knopka">СЫГРАТЬ</button>
+            <script>
+
+                function generateRandomNumber(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+
+                function startGame() {
+                    const minNumber = parseInt(document.getElementById("min").value); 
+                    const maxNumber = parseInt(document.getElementById("max").value); 
+                    const secretNumber = generateRandomNumber(minNumber, maxNumber); 
+                    let attemptsLeft = 5;
+
+                    function getUserGuess() {
+                        let guess = prompt(`Угадайте число от ${minNumber} до ${maxNumber}. Попыток осталось: ${attemptsLeft}`);
+
+                        if (guess === null) {
+                            return null;
+                        }
+
+                        guess = parseInt(guess);
+                        if (isNaN(guess) || guess < minNumber || guess > maxNumber) {
+                            alert(`Пожалуйста, введите корректное число от ${minNumber} до ${maxNumber}.`);
+                            return getUserGuess();
+                        }
+
+                        return guess;
+                    }
+                    
+                    function playGame() {
+                        const userGuess = getUserGuess();
+
+                        if (userGuess === null) {
+                            return;
+                        }
+
+                        attemptsLeft--;
+
+                        if (userGuess === secretNumber) {
+                            alert('Поздравляем! Вы угадали число!');
+                            return;
+                        } else if (attemptsLeft === 0) {
+                            alert(`Игра окончена! Загаданное число было: ${secretNumber}. Чтобы сыграть ещё раз нажмите кнопку "СЫГРАТЬ"`);
+                            return;
+                        } else {
+                            const message = userGuess < secretNumber ? 'больше' : 'меньше';
+                            alert(`Неправильно! Загаданное число ${message} вашего числа. Осталось попыток: ${attemptsLeft}`);
+                            playGame();
+                        }
+                    }
+
+                    playGame();
+                }
+            </script>
+        </section>
+    </div>
+    <footer>Здесь всё защищено</footer>
+</body>
+</html>
